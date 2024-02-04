@@ -24,7 +24,7 @@ class MenuItem(models.Model):
     class Meta:
         verbose_name = 'Меню'
         verbose_name_plural = 'Меню'
-        ordering = ['-id']
+        ordering = ['id']
 
     def __str__(self):
         return self.name

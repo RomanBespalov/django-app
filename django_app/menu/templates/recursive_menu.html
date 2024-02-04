@@ -1,11 +1,10 @@
-<li>{{ main_item.name }}
-    <ul>
+{% load menu_tags %}
+{% for main_item in main_items %}
+    <li>{{ main_item.name }}
         {% if main_item.children %}
-            {% for child in main_item.children.all %}
-                {%with main_item=child template_name="recursive_menu.html" %}
-                   {%include template_name%}
-                {%endwith%}
-            {% endfor %}
+            <ul>
+                {% draw_menu parent_item=main_item %}
+            </ul>
         {% endif %}
-    </ul>
-</li>
+    </li>
+{% endfor %}
